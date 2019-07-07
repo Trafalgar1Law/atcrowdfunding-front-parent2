@@ -1,0 +1,37 @@
+#项目名
+spring:
+  application:
+    name: atcrowdfunding-project
+    #配数据源
+  datasource:
+    username: root
+    url: jdbc:mysql://192.168.59.132:3306/atcrowdfunding
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    password: 123456
+  redis:
+    host: 192.168.59.132
+
+
+#日志打印
+logging:
+  level:
+    com:
+      atguigu: debug
+#端口号
+server:
+  port: 8000
+
+#注册中心
+eureka:
+  instance:
+    hostname: localhost
+    #使用ip注册上去
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka
+mybatis:
+  mapper-locations: classpath:/mybatis/mapper/*.xml
